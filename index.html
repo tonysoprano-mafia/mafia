@@ -71,34 +71,26 @@
 </head>
 <body>
   <h1>RASO EMPIRE</h1>
-
   <div class="buttons">
     <button class="btn">Enter Empire</button>
     <button class="btn">Projects</button>
   </div>
 
-  <audio id="theme" autoplay loop muted>
+  <audio id="theme" autoplay loop>
     <source src="Dance Of The Knights.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const audio = document.getElementById('theme');
 
-    // Fade volume in after 1 second, once autoplay succeeds
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        audio.muted = false;
-        audio.volume = 0;
-        audio.play().then(() => {
-          let fade = setInterval(() => {
-            if (audio.volume < 1.0) {
-              audio.volume += 0.05;
-            } else {
-              clearInterval(fade);
-            }
-          }, 200);
-        }).catch(err => console.log("Autoplay blocked:", err));
-      }, 1000);
+    audio.play().catch(err => {
+      const startAudio = () => {
+        audio.play();
+        window.removeEventListener('click', startAudio);
+        window.removeEventListener('keydown', startAudio);
+      };
+      window.addEventListener('click', startAudio);
+      window.addEventListener('keydown', startAudio);
     });
   </script>
 </body>
