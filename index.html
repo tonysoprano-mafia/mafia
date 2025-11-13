@@ -41,7 +41,7 @@
       100% { transform: translate(-30%, -30%) rotate(360deg); }
     }
 
-    /* --- Pillars --- */
+    /* --- Pillars (fixed and steady) --- */
     .pillar {
       position: fixed;
       top: 0;
@@ -50,12 +50,11 @@
       z-index: 0;
       opacity: 0.9;
       filter: drop-shadow(0 0 25px rgba(212,175,55,0.4));
-      transition: transform 0.5s ease, filter 0.5s ease;
+      transition: filter 0.5s ease;
     }
 
     .pillar:hover {
-      transform: scale(1.03);
-      filter: drop-shadow(0 0 35px rgba(212,175,55,0.8));
+      filter: drop-shadow(0 0 40px rgba(212,175,55,0.8));
     }
 
     .pillar.left {
@@ -64,7 +63,7 @@
 
     .pillar.right {
       right: 0;
-      transform: scaleX(-1);
+      transform: scaleX(-1); /* mirror image for perfect symmetry */
     }
 
     /* --- Logo --- */
