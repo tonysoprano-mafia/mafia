@@ -41,6 +41,32 @@
       100% { transform: translate(-30%, -30%) rotate(360deg); }
     }
 
+    /* --- Pillars --- */
+    .pillar {
+      position: fixed;
+      top: 0;
+      height: 100vh;
+      width: auto;
+      z-index: 0;
+      opacity: 0.7;
+      filter: drop-shadow(0 0 20px rgba(212,175,55,0.3));
+      transition: transform 0.5s ease;
+    }
+
+    .pillar:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 30px rgba(212,175,55,0.6));
+    }
+
+    .pillar.left {
+      left: 0;
+    }
+
+    .pillar.right {
+      right: 0;
+      transform: scaleX(-1); /* mirror image for symmetry */
+    }
+
     /* --- Logo --- */
     .logo {
       width: clamp(180px, 25vw, 260px);
@@ -99,7 +125,7 @@
       transform: scale(1.05);
     }
 
-    /* --- Number Plates (same size as buttons) --- */
+    /* --- Number Plates --- */
     .plates {
       margin-top: 30px;
       display: flex;
@@ -139,18 +165,19 @@
     }
 
     /* --- Mobile tweaks --- */
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
+      .pillar {
+        display: none; /* hide pillars on small screens */
+      }
       body {
         justify-content: flex-start;
         padding-top: 80px;
         height: auto;
       }
-
       .btn {
         width: 180px;
         font-size: 1em;
       }
-
       .plates img {
         width: 180px;
       }
@@ -158,6 +185,10 @@
   </style>
 </head>
 <body>
+  <!-- Pillars -->
+  <img src="pngtree-antique-columns-building-ancient-pillar-png-image_13520087.png" alt="Pillar Left" class="pillar left">
+  <img src="pngtree-antique-columns-building-ancient-pillar-png-image_13520087.png" alt="Pillar Right" class="pillar right">
+
   <img src="rm-logo.png" alt="Raso McGillicuddy Logo" class="logo">
   <h1>RASO & MCGILLICUDDY EMPIRE</h1>
 
