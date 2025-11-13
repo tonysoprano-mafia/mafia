@@ -21,6 +21,21 @@
       animation: fadeIn 3s ease-in;
     }
 
+    /* Logo styling */
+    .logo {
+      width: 220px;
+      height: auto;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 25px #d4af37);
+      animation: fadeIn 3s ease-in;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 40px #ffd700);
+    }
+
     h1 {
       font-size: 4em;
       letter-spacing: 8px;
@@ -67,10 +82,30 @@
     audio {
       display: none;
     }
+
+    /* Responsive design for mobile */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5em;
+        letter-spacing: 4px;
+      }
+      .logo {
+        width: 160px;
+      }
+      .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+      .buttons {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
+  <img src="logo-Photoroom.png" alt="Empire Logo" class="logo">
   <h1>RASO & MCGILLICUDDY EMPIRE</h1>
+
   <div class="buttons">
     <button class="btn">Enter Empire</button>
     <button class="btn">Projects</button>
