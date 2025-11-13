@@ -17,7 +17,7 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
       animation: fadeIn 3s ease-in;
       position: relative;
     }
@@ -39,31 +39,6 @@
       0% { transform: translate(-30%, -30%) rotate(0deg); }
       50% { transform: translate(30%, 30%) rotate(180deg); }
       100% { transform: translate(-30%, -30%) rotate(360deg); }
-    }
-
-    /* --- Pillars (fixed and steady) --- */
-    .pillar {
-      position: fixed;
-      top: 0;
-      height: 100vh;
-      width: auto;
-      z-index: 0;
-      opacity: 0.9;
-      filter: drop-shadow(0 0 25px rgba(212,175,55,0.4));
-      transition: filter 0.5s ease;
-    }
-
-    .pillar:hover {
-      filter: drop-shadow(0 0 40px rgba(212,175,55,0.8));
-    }
-
-    .pillar.left {
-      left: 0;
-    }
-
-    .pillar.right {
-      right: 0;
-      transform: scaleX(-1); /* mirror image for perfect symmetry */
     }
 
     /* --- Logo --- */
@@ -149,6 +124,48 @@
       box-shadow: 0 0 30px rgba(212,175,55,0.6);
     }
 
+    /* --- Columns --- */
+    .column {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 200px;
+      z-index: 0;
+      opacity: 0.85;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    .left-column {
+      left: 0;
+      background-image: url('007-Photoroom.png');
+    }
+
+    .right-column {
+      right: 0;
+      background-image: url('007-Photoroom.png');
+    }
+
+    /* --- Extra section for new image --- */
+    .legend {
+      margin-top: 800px;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .legend img {
+      width: clamp(300px, 40vw, 600px);
+      height: auto;
+      filter: drop-shadow(0 0 25px #d4af37);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .legend img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 40px #ffd700);
+    }
+
     @keyframes glow {
       from { text-shadow: 0 0 10px #d4af37, 0 0 20px #b8860b; }
       to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ffcc00; }
@@ -164,29 +181,31 @@
     }
 
     /* --- Mobile tweaks --- */
-    @media (max-width: 800px) {
-      .pillar {
-        display: none;
-      }
+    @media (max-width: 600px) {
       body {
         justify-content: flex-start;
         padding-top: 80px;
         height: auto;
       }
+
       .btn {
         width: 180px;
         font-size: 1em;
       }
+
       .plates img {
         width: 180px;
+      }
+
+      .column {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Pillars -->
-  <img src="007-Photoroom.png" alt="Left Pillar" class="pillar left">
-  <img src="007-Photoroom.png" alt="Right Pillar" class="pillar right">
+  <div class="column left-column"></div>
+  <div class="column right-column"></div>
 
   <img src="rm-logo.png" alt="Raso McGillicuddy Logo" class="logo">
   <h1>RASO & MCGILLICUDDY EMPIRE</h1>
@@ -199,6 +218,11 @@
   <div class="plates">
     <img src="Screenshot 2025-11-13 181250.png" alt="MAFIA Number Plate">
     <img src="Screenshot 2025-11-13 181412.png" alt="EMPIRE Number Plate">
+  </div>
+
+  <!-- New section further down -->
+  <div class="legend">
+    <img src="oo1-Photoroom.png" alt="Legend Image">
   </div>
 
   <audio id="theme" autoplay loop>
