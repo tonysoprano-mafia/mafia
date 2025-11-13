@@ -71,12 +71,13 @@
 </head>
 <body>
   <h1>RASO EMPIRE</h1>
+
   <div class="buttons">
     <button class="btn">Enter Empire</button>
     <button class="btn">Projects</button>
   </div>
 
-  <!-- Hidden audio element, initially muted -->
+  <!-- Hidden audio element, muted to allow autoplay -->
   <audio id="theme" autoplay loop muted>
     <source src="Dance Of The Knights.mp3" type="audio/mpeg">
   </audio>
@@ -84,12 +85,13 @@
   <script>
     const audio = document.getElementById('theme');
 
-    // Unmute immediately after a tiny delay to bypass autoplay block
+    // Attempt to unmute immediately (closest to true autoplay)
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
-        audio.muted = false;
-        audio.play().catch(err => console.log("Autoplay prevented:", err));
-      }, 100); // 0.1 second delay is enough
+        audio.muted = false;  // unmute
+        audio.volume = 1.0;   // full volume
+        audio.play().catch(err => console.log("Autoplay blocked:", err));
+      }, 100); // tiny delay
     });
   </script>
 </body>
