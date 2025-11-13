@@ -64,6 +64,12 @@
       to { opacity: 1; }
     }
 
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
     audio {
       display: none;
     }
@@ -73,25 +79,28 @@
   <h1>RASO EMPIRE</h1>
 
   <div class="buttons">
-    <button class="btn">Enter Empire</button>
+    <button id="enterBtn" class="btn">Enter Empire</button>
     <button class="btn">Projects</button>
   </div>
 
-  <!-- Hidden audio element, muted to allow autoplay -->
-  <audio id="theme" autoplay loop muted>
+  <audio id="theme" loop>
     <source src="Dance Of The Knights.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const audio = document.getElementById('theme');
+    const enterBtn = document.getElementById('enterBtn');
 
-    // Attempt to unmute immediately (closest to true autoplay)
+    // When user clicks Enter Empire
+    enterBtn.addEventListener('click', () => {
+      audio.play(); // start music immediately
+      enterBtn.classList.add('fade-out'); // fade out the button
+    });
+
+    // Optional: allow music to autoplay muted initially (some browsers)
     window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        audio.muted = false;  // unmute
-        audio.volume = 1.0;   // full volume
-        audio.play().catch(err => console.log("Autoplay blocked:", err));
-      }, 100); // tiny delay
+      audio.muted = true;
+      audio.play().catch(() => {});
     });
   </script>
 </body>
