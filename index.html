@@ -15,7 +15,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh; /* changed from height: 100vh */
+      min-height: 100vh;
       text-align: center;
       overflow-x: hidden;
       animation: fadeIn 3s ease-in;
@@ -66,10 +66,10 @@
       transform: scaleX(-1);
     }
 
-    /* --- Logo --- */
+    /* --- Logo (restored height) --- */
     .logo {
-      width: clamp(180px, 25vw, 260px);
-      height: auto;
+      width: auto;
+      height: 200px; /* fixed height for your logo, like before */
       margin-bottom: 25px;
       filter: drop-shadow(0 0 25px #d4af37);
       animation: fadeIn 3s ease-in;
@@ -149,7 +149,7 @@
       box-shadow: 0 0 30px rgba(212,175,55,0.6);
     }
 
-    /* --- Extra Image Section --- */
+    /* --- Extra Image Section (no border) --- */
     .extra-image {
       margin-top: 60px;
       display: flex;
@@ -160,15 +160,14 @@
     .extra-image img {
       width: clamp(250px, 60vw, 800px);
       height: auto;
-      border: 2px solid #d4af37;
+      border: none; /* removed gold line */
       border-radius: 12px;
-      box-shadow: 0 0 25px rgba(212,175,55,0.3);
+      box-shadow: none; /* no outer glow or line */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .extra-image img:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(212,175,55,0.6);
     }
 
     @keyframes glow {
