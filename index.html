@@ -71,13 +71,36 @@
 </head>
 <body>
   <h1>RASO EMPIRE</h1>
+
   <div class="buttons">
-    <button class="btn">Enter Empire</button>
+    <button class="btn" onclick="playMusic()">Enter Empire</button>
     <button class="btn">Projects</button>
   </div>
 
-  <audio autoplay loop>
+  <!-- Hidden audio element -->
+  <audio id="theme" loop>
     <source src="Dance Of The Knights.mp3" type="audio/mpeg">
   </audio>
+
+  <script>
+    const audio = document.getElementById('theme');
+
+    function playMusic() {
+      // Reset volume and play
+      audio.volume = 0;
+      audio.play().then(() => {
+        // Gradually fade in
+        let fadeIn = setInterval(() => {
+          if (audio.volume < 1.0) {
+            audio.volume += 0.05;
+          } else {
+            clearInterval(fadeIn);
+          }
+        }, 200);
+      }).catch(err => {
+        console.log("Playback prevented until user interacts:", err);
+      });
+    }
+  </script>
 </body>
 </html>
