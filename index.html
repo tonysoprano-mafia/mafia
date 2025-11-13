@@ -69,7 +69,7 @@
     /* --- Logo (restored height) --- */
     .logo {
       width: auto;
-      height: 200px; /* fixed height for your logo, like before */
+      height: 200px;
       margin-bottom: 25px;
       filter: drop-shadow(0 0 25px #d4af37);
       animation: fadeIn 3s ease-in;
@@ -82,14 +82,16 @@
       filter: drop-shadow(0 0 40px #ffd700);
     }
 
-    /* --- Title --- */
+    /* --- Title (resized to fit between pillars) --- */
     h1 {
-      font-size: clamp(2.5em, 6vw, 4em);
-      letter-spacing: clamp(3px, 1vw, 8px);
+      font-size: clamp(1.8em, 4vw, 3em);
+      letter-spacing: clamp(2px, 0.6vw, 5px);
       text-shadow: 0 0 20px #d4af37, 0 0 40px #b8860b;
       animation: glow 3s ease-in-out infinite alternate;
       z-index: 1;
-      margin: 0 20px;
+      margin: 10px 20px 0 20px;
+      max-width: 80%;
+      line-height: 1.2;
     }
 
     /* --- Buttons --- */
@@ -160,9 +162,9 @@
     .extra-image img {
       width: clamp(250px, 60vw, 800px);
       height: auto;
-      border: none; /* removed gold line */
+      border: none;
       border-radius: 12px;
-      box-shadow: none; /* no outer glow or line */
+      box-shadow: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
