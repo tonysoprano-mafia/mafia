@@ -15,9 +15,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh; /* changed from height: 100vh */
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
       animation: fadeIn 3s ease-in;
       position: relative;
     }
@@ -41,7 +41,7 @@
       100% { transform: translate(-30%, -30%) rotate(360deg); }
     }
 
-    /* --- Pillars (fixed and steady) --- */
+    /* --- Pillars --- */
     .pillar {
       position: fixed;
       top: 0;
@@ -63,7 +63,7 @@
 
     .pillar.right {
       right: 0;
-      transform: scaleX(-1); /* mirror image for perfect symmetry */
+      transform: scaleX(-1);
     }
 
     /* --- Logo --- */
@@ -149,6 +149,28 @@
       box-shadow: 0 0 30px rgba(212,175,55,0.6);
     }
 
+    /* --- Extra Image Section --- */
+    .extra-image {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .extra-image img {
+      width: clamp(250px, 60vw, 800px);
+      height: auto;
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(212,175,55,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .extra-image img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(212,175,55,0.6);
+    }
+
     @keyframes glow {
       from { text-shadow: 0 0 10px #d4af37, 0 0 20px #b8860b; }
       to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ffcc00; }
@@ -180,6 +202,9 @@
       .plates img {
         width: 180px;
       }
+      .extra-image img {
+        width: 80%;
+      }
     }
   </style>
 </head>
@@ -188,18 +213,25 @@
   <img src="007-Photoroom.png" alt="Left Pillar" class="pillar left">
   <img src="007-Photoroom.png" alt="Right Pillar" class="pillar right">
 
+  <!-- Logo and Title -->
   <img src="rm-logo.png" alt="Raso McGillicuddy Logo" class="logo">
   <h1>RASO & MCGILLICUDDY EMPIRE</h1>
 
+  <!-- Buttons -->
   <div class="buttons">
     <button class="btn">Enter Empire</button>
     <button class="btn">Projects</button>
   </div>
 
-
+  <!-- Number Plates -->
   <div class="plates">
     <img src="Screenshot 2025-11-13 181250.png" alt="MAFIA Number Plate">
     <img src="Screenshot 2025-11-13 181412.png" alt="EMPIRE Number Plate">
+  </div>
+
+  <!-- New Image Section -->
+  <div class="extra-image">
+    <img src="oo1-Photoroom.png" alt="Empire Scene">
   </div>
 
   <audio id="theme" autoplay loop>
