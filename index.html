@@ -76,21 +76,20 @@
     <button class="btn">Projects</button>
   </div>
 
-  <audio id="theme" autoplay loop>
+  <!-- Hidden audio element, initially muted -->
+  <audio id="theme" autoplay loop muted>
     <source src="Dance Of The Knights.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const audio = document.getElementById('theme');
 
-    audio.play().catch(err => {
-      const startAudio = () => {
-        audio.play();
-        window.removeEventListener('click', startAudio);
-        window.removeEventListener('keydown', startAudio);
-      };
-      window.addEventListener('click', startAudio);
-      window.addEventListener('keydown', startAudio);
+    // Unmute immediately after a tiny delay to bypass autoplay block
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => console.log("Autoplay prevented:", err));
+      }, 100); // 0.1 second delay is enough
     });
   </script>
 </body>
