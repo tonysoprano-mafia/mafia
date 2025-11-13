@@ -17,11 +17,12 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
       animation: fadeIn 3s ease-in;
       position: relative;
     }
 
+    /* --- Gold shimmer background --- */
     body::before {
       content: "";
       position: absolute;
@@ -40,6 +41,7 @@
       100% { transform: translate(-30%, -30%) rotate(360deg); }
     }
 
+    /* --- Pillars (fixed and steady) --- */
     .pillar {
       position: fixed;
       top: 0;
@@ -55,9 +57,16 @@
       filter: drop-shadow(0 0 40px rgba(212,175,55,0.8));
     }
 
-    .pillar.left { left: 0; }
-    .pillar.right { right: 0; transform: scaleX(-1); }
+    .pillar.left {
+      left: 0;
+    }
 
+    .pillar.right {
+      right: 0;
+      transform: scaleX(-1); /* mirror image for perfect symmetry */
+    }
+
+    /* --- Logo --- */
     .logo {
       width: clamp(180px, 25vw, 260px);
       height: auto;
@@ -73,6 +82,7 @@
       filter: drop-shadow(0 0 40px #ffd700);
     }
 
+    /* --- Title --- */
     h1 {
       font-size: clamp(2.5em, 6vw, 4em);
       letter-spacing: clamp(3px, 1vw, 8px);
@@ -82,6 +92,7 @@
       margin: 0 20px;
     }
 
+    /* --- Buttons --- */
     .buttons {
       margin-top: 40px;
       display: flex;
@@ -113,6 +124,7 @@
       transform: scale(1.05);
     }
 
+    /* --- Number Plates --- */
     .plates {
       margin-top: 30px;
       display: flex;
@@ -137,43 +149,37 @@
       box-shadow: 0 0 30px rgba(212,175,55,0.6);
     }
 
-    /* --- Scarface image (below number plates) --- */
-    .scarface {
-      margin-top: 500px;
-      text-align: center;
-      z-index: 1;
-    }
-
-    .scarface img {
-      width: clamp(300px, 40vw, 600px);
-      height: auto;
-      filter: drop-shadow(0 0 25px #d4af37);
-      transition: transform 0.4s ease, filter 0.4s ease;
-    }
-
-    .scarface img:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 40px #ffd700);
-    }
-
     @keyframes glow {
       from { text-shadow: 0 0 10px #d4af37, 0 0 20px #b8860b; }
       to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ffcc00; }
     }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-    audio { display: none; }
+    audio {
+      display: none;
+    }
 
+    /* --- Mobile tweaks --- */
     @media (max-width: 800px) {
-      .pillar { display: none; }
+      .pillar {
+        display: none;
+      }
       body {
         justify-content: flex-start;
         padding-top: 80px;
         height: auto;
       }
-      .btn { width: 180px; font-size: 1em; }
-      .plates img { width: 180px; }
+      .btn {
+        width: 180px;
+        font-size: 1em;
+      }
+      .plates img {
+        width: 180px;
+      }
     }
   </style>
 </head>
@@ -193,11 +199,6 @@
   <div class="plates">
     <img src="Screenshot 2025-11-13 181250.png" alt="MAFIA Number Plate">
     <img src="Screenshot 2025-11-13 181412.png" alt="EMPIRE Number Plate">
-  </div>
-
-  <!-- Scarface image (scroll to see) -->
-  <div class="scarface">
-    <img src="oo1-Photoroom.png" alt="Scarface Image">
   </div>
 
   <audio id="theme" autoplay loop>
