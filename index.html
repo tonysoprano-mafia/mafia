@@ -22,7 +22,7 @@
       position: relative;
     }
 
-    /* --- Gold shimmer cinematic effect --- */
+    /* --- Gold shimmer background --- */
     body::before {
       content: "";
       position: absolute;
@@ -89,6 +89,7 @@
       transition: all 0.3s ease;
       border-radius: 6px;
       z-index: 1;
+      min-width: 200px;
     }
 
     .btn:hover {
@@ -98,7 +99,31 @@
       transform: scale(1.05);
     }
 
-    /* --- Animations --- */
+    /* --- Number Plates (same size as buttons) --- */
+    .plates {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      z-index: 1;
+    }
+
+    .plates img {
+      width: 220px;
+      height: auto;
+      border: 2px solid #d4af37;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(212,175,55,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .plates img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(212,175,55,0.6);
+    }
+
     @keyframes glow {
       from { text-shadow: 0 0 10px #d4af37, 0 0 20px #b8860b; }
       to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ffcc00; }
@@ -113,7 +138,7 @@
       display: none;
     }
 
-    /* --- Responsive adjustments --- */
+    /* --- Mobile tweaks --- */
     @media (max-width: 600px) {
       body {
         justify-content: flex-start;
@@ -121,26 +146,13 @@
         height: auto;
       }
 
-      .logo {
-        width: 160px;
-        margin-bottom: 15px;
-      }
-
-      h1 {
-        font-size: 2em;
-        letter-spacing: 3px;
-      }
-
-      .buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
-        margin-top: 30px;
-      }
-
       .btn {
-        width: 200px;
+        width: 180px;
         font-size: 1em;
+      }
+
+      .plates img {
+        width: 180px;
       }
     }
   </style>
@@ -154,13 +166,17 @@
     <button class="btn">Projects</button>
   </div>
 
+  <div class="plates">
+    <img src="Screenshot 2025-11-13 181250.png" alt="MAFIA Number Plate">
+    <img src="Screenshot 2025-11-13 181412.png" alt="EMPIRE Number Plate">
+  </div>
+
   <audio id="theme" autoplay loop>
     <source src="Dance Of The Knights.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const audio = document.getElementById('theme');
-
     audio.play().catch(() => {
       const startAudio = () => {
         audio.play();
