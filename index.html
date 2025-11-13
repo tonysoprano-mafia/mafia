@@ -41,6 +41,31 @@
       100% { transform: translate(-30%, -30%) rotate(360deg); }
     }
 
+    /* --- Pillars (fixed and steady) --- */
+    .pillar {
+      position: fixed;
+      top: 0;
+      height: 100vh;
+      width: auto;
+      z-index: 0;
+      opacity: 0.9;
+      filter: drop-shadow(0 0 25px rgba(212,175,55,0.4));
+      transition: filter 0.5s ease;
+    }
+
+    .pillar:hover {
+      filter: drop-shadow(0 0 40px rgba(212,175,55,0.8));
+    }
+
+    .pillar.left {
+      left: 0;
+    }
+
+    .pillar.right {
+      right: 0;
+      transform: scaleX(-1); /* mirror image for perfect symmetry */
+    }
+
     /* --- Logo --- */
     .logo {
       width: clamp(180px, 25vw, 260px);
@@ -124,43 +149,21 @@
       box-shadow: 0 0 30px rgba(212,175,55,0.6);
     }
 
-    /* --- Columns --- */
-    .column {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 200px;
-      z-index: 0;
-      opacity: 0.9;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-    }
-
-    .left-column {
-      left: 0;
-      background-image: url('007-Photoroom.png');
-    }
-
-    .right-column {
-      right: 0;
-      background-image: url('007-Photoroom.png');
-    }
-
-    /* --- Extra image further down --- */
-    .extra-image {
-      margin-top: 800px; /* how far down you want to scroll before it shows */
+    /* --- Scarface image section --- */
+    .scarface {
+      margin-top: 800px; /* scroll distance before it appears */
+      text-align: center;
       z-index: 1;
     }
 
-    .extra-image img {
+    .scarface img {
       width: clamp(300px, 40vw, 600px);
       height: auto;
       filter: drop-shadow(0 0 25px #d4af37);
       transition: transform 0.4s ease, filter 0.4s ease;
     }
 
-    .extra-image img:hover {
+    .scarface img:hover {
       transform: scale(1.05);
       filter: drop-shadow(0 0 40px #ffd700);
     }
@@ -180,31 +183,29 @@
     }
 
     /* --- Mobile tweaks --- */
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
+      .pillar {
+        display: none;
+      }
       body {
         justify-content: flex-start;
         padding-top: 80px;
         height: auto;
       }
-
       .btn {
         width: 180px;
         font-size: 1em;
       }
-
       .plates img {
         width: 180px;
-      }
-
-      .column {
-        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <div class="column left-column"></div>
-  <div class="column right-column"></div>
+  <!-- Pillars -->
+  <img src="007-Photoroom.png" alt="Left Pillar" class="pillar left">
+  <img src="007-Photoroom.png" alt="Right Pillar" class="pillar right">
 
   <img src="rm-logo.png" alt="Raso McGillicuddy Logo" class="logo">
   <h1>RASO & MCGILLICUDDY EMPIRE</h1>
@@ -219,9 +220,9 @@
     <img src="Screenshot 2025-11-13 181412.png" alt="EMPIRE Number Plate">
   </div>
 
-  <!-- New image further down -->
-  <div class="extra-image">
-    <img src="oo1-Photoroom.png" alt="Extra Image">
+  <!-- Scarface image further down -->
+  <div class="scarface">
+    <img src="oo1-Photoroom.png" alt="Scarface Image">
   </div>
 
   <audio id="theme" autoplay loop>
