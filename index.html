@@ -6,6 +6,8 @@
   <title>RASO EMPIRE</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
       background-color: black;
       color: #d4af37;
       font-family: 'Arial Black', sans-serif;
@@ -15,6 +17,21 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
+      overflow: hidden;
+      animation: fadeIn 3s ease-in;
+    }
+
+    h1 {
+      font-size: 4em;
+      letter-spacing: 8px;
+      text-shadow: 0 0 20px #d4af37, 0 0 40px #b8860b;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 25px;
     }
 
     .btn {
@@ -34,6 +51,17 @@
       background-color: #d4af37;
       color: black;
       box-shadow: 0 0 20px #d4af37;
+      transform: scale(1.05);
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #d4af37, 0 0 20px #b8860b; }
+      to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ffcc00; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     audio {
@@ -43,18 +71,35 @@
 </head>
 <body>
   <h1>RASO EMPIRE</h1>
-  <button class="btn" onclick="playMusic()">Enter Empire</button>
 
-  <audio id="theme" loop>
+  <div class="buttons">
+    <button class="btn">Enter Empire</button>
+    <button class="btn">Projects</button>
+  </div>
+
+  <audio id="theme" autoplay loop muted>
     <source src="Dance Of The Knights.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    function playMusic() {
-      const audio = document.getElementById('theme');
-      audio.volume = 1.0;
-      audio.play().catch(err => console.log(err));
-    }
+    const audio = document.getElementById('theme');
+
+    // Fade volume in after 1 second, once autoplay succeeds
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        audio.muted = false;
+        audio.volume = 0;
+        audio.play().then(() => {
+          let fade = setInterval(() => {
+            if (audio.volume < 1.0) {
+              audio.volume += 0.05;
+            } else {
+              clearInterval(fade);
+            }
+          }, 200);
+        }).catch(err => console.log("Autoplay blocked:", err));
+      }, 1000);
+    });
   </script>
 </body>
 </html>
