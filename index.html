@@ -22,7 +22,6 @@
       position: relative;
     }
 
-    /* --- Gold shimmer background --- */
     body::before {
       content: "";
       position: absolute;
@@ -41,7 +40,6 @@
       100% { transform: translate(-30%, -30%) rotate(360deg); }
     }
 
-    /* --- Pillars --- */
     .pillar {
       position: fixed;
       top: 0;
@@ -57,16 +55,12 @@
       filter: drop-shadow(0 0 40px rgba(212,175,55,0.8));
     }
 
-    .pillar.left {
-      left: 0;
-    }
-
+    .pillar.left { left: 0; }
     .pillar.right {
       right: 0;
       transform: scaleX(-1);
     }
 
-    /* --- Logo  --- */
     .logo {
       width: auto;
       height: 220px;
@@ -82,7 +76,6 @@
       filter: drop-shadow(0 0 40px #ffd700);
     }
 
-    /* --- Title (resized to fit between pillars) --- */
     h1 {
       font-size: clamp(1.8em, 4vw, 3em);
       letter-spacing: clamp(2px, 0.6vw, 5px);
@@ -94,7 +87,6 @@
       line-height: 1.2;
     }
 
-    /* --- Buttons --- */
     .buttons {
       margin-top: 40px;
       display: flex;
@@ -126,7 +118,6 @@
       transform: scale(1.05);
     }
 
-    /* --- Number Plates --- */
     .plates {
       margin-top: 30px;
       display: flex;
@@ -151,7 +142,6 @@
       box-shadow: 0 0 30px rgba(212,175,55,0.6);
     }
 
-    /* --- Extra Image Section (no border) --- */
     .extra-image {
       margin-top: 60px;
       display: flex;
@@ -164,8 +154,7 @@
       height: auto;
       border: none;
       border-radius: 12px;
-      box-shadow: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .extra-image img:hover {
@@ -182,15 +171,10 @@
       to { opacity: 1; }
     }
 
-    audio {
-      display: none;
-    }
+    audio { display: none; }
 
-    /* --- Mobile tweaks --- */
     @media (max-width: 800px) {
-      .pillar {
-        display: none;
-      }
+      .pillar { display: none; }
       body {
         justify-content: flex-start;
         padding-top: 80px;
@@ -200,37 +184,29 @@
         width: 180px;
         font-size: 1em;
       }
-      .plates img {
-        width: 180px;
-      }
-      .extra-image img {
-        width: 60%;
-      }
+      .plates img { width: 180px; }
+      .extra-image img { width: 60%; }
     }
   </style>
 </head>
 <body>
-  <!-- Pillars -->
+
   <img src="007-Photoroom.png" alt="Left Pillar" class="pillar left">
   <img src="007-Photoroom.png" alt="Right Pillar" class="pillar right">
 
-  <!-- Logo and Title -->
   <img src="rm-logo.png" alt="Raso McGillicuddy Logo" class="logo">
   <h1>RASO & MCGILLICUDDY EMPIRE</h1>
 
-  <!-- Buttons -->
   <div class="buttons">
-    <button class="btn">Enter Empire</button>
+    <button class="btn" onclick="window.location.href='store.html'">Enter Empire</button>
     <button class="btn">Projects</button>
   </div>
 
-  <!-- Number Plates -->
   <div class="plates">
     <img src="Screenshot 2025-11-13 181250.png" alt="MAFIA Number Plate">
     <img src="Screenshot 2025-11-13 181412.png" alt="EMPIRE Number Plate">
   </div>
 
-  <!-- New Image Section -->
   <div class="extra-image">
     <img src="oo1-Photoroom.png" alt="Empire Scene">
   </div>
@@ -251,5 +227,6 @@
       window.addEventListener('keydown', startAudio);
     });
   </script>
+
 </body>
 </html>
