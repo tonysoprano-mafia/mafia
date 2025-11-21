@@ -1,1 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empire Store — RASO & MCGILLICUDDY EMPIRE</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: #d4af37;
+      font-family: 'Arial Black', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+      animation: fadeIn 3s ease-in;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(212,175,55,0.1), transparent 70%);
+      animation: shimmer 12s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translate(-30%, -30%) rotate(0deg); }
+      50% { transform: translate(30%, 30%) rotate(180deg); }
+      100% { transform: translate(-30%, -30%) rotate(360deg); }
+    }
+
+    .pillar {
+      position: fixed;
+      top: 0;
+      height: 100vh;
+      width: auto;
+      z-index: 0;
+      opacity: 0.9;
+      filter: drop-shadow(0 0 25px rgba(212,175,55,0.4));
+      transition: filter 0.5s ease;
+    }
+
+    .pillar.left { left: 0; }
+    .pillar.right { right: 0; transform: scaleX(-1); }
+
+    .pillar:hover {
+      filter: drop-shadow(0 0 40px rgba(212,175,55,0.8));
+    }
+
+    .logo {
+      width: auto;
+      height: 200px;
+      margin-top: 30px;
+      filter: drop-shadow(0 0 25px #d4af37);
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(2em, 4vw, 3em);
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px #d4af37, 0 0 40px #b8860b;
+      animation: glow 3s ease-in-out infinite alternate;
+      z-index: 1;
+      margin-top: 15px;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #d4af37, 0 0 20px #b8860b; }
+      to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ffcc00; }
+    }
+
+    .section {
+      margin-top: 50px;
+      width: 80%;
+      max-width: 900px;
+      background: rgba(20,20,20,0.6);
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 25px rgba(212,175,55,0.3);
+      z-index: 1;
+      backdrop-filter: blur(4px);
+    }
+
+    .section h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #d4af37;
+    }
+
+    .item {
+      border: 1px solid #d4af37;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(212,175,55,0.5);
+    }
+
+    .item-title {
+      font-size: 1.3em;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 1.1em;
+      margin-top: 5px;
+      color: #ffd700;
+    }
+
+    .back-btn {
+      border: 2px solid #d4af37;
+      color: #d4af37;
+      background: transparent;
+      padding: 10px 30px;
+      font-size: 1.1em;
+      letter-spacing: 2px;
+      margin-top: 40px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      border-radius: 6px;
+      z-index: 1;
+    }
+
+    .back-btn:hover {
+      background-color: #d4af37;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #d4af37;
+    }
+
+    @media (max-width: 800px) {
+      .pillar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pillars -->
+  <img src="007-Photoroom.png" class="pillar left">
+  <img src="007-Photoroom.png" class="pillar right">
+
+  <!-- Logo + Title -->
+  <img src="rm-logo.png" class="logo">
+  <h1>EMPIRE STORE</h1>
+
+  <!-- Website Domains -->
+  <div class="section">
+    <h2>Website Domains for Sale</h2>
+
+    <div class="item">
+      <div class="item-title">mafia.nz</div>
+      <div class="price">$499</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">raso.nz</div>
+      <div class="price">$299</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">empire.nz</div>
+      <div class="price">$349</div>
+    </div>
+  </div>
+
+  <!-- Email Addresses -->
+  <div class="section">
+    <h2>Email Addresses for Sale</h2>
+
+    <div class="item">
+      <div class="item-title">boss@mafia.nz</div>
+      <div class="price">$39 / year</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">admin@mafia.nz</div>
+      <div class="price">$29 / year</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">ceo@empire.nz</div>
+      <div class="price">$49 / year</div>
+    </div>
+  </div>
+
+  <!-- Phone Numbers -->
+  <div class="section">
+    <h2>Phone Numbers for Sale</h2>
+
+    <div class="item">
+      <div class="item-title">+64 22 000 0001</div>
+      <div class="price">$199</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">+64 21 777 8888</div>
+      <div class="price">$299</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">+64 27 444 4444</div>
+      <div class="price">$249</div>
+    </div>
+  </div>
+
+  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+
+</body>
+</html>
 
