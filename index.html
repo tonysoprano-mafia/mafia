@@ -1,232 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RASO & MCGILLICUDDY EMPIRE</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: black;
-      color: #d4af37;
-      font-family: 'Arial Black', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      overflow-x: hidden;
-      animation: fadeIn 3s ease-in;
-      position: relative;
-    }
+<meta charset="UTF-8">
+<title>MAFIA.NZ</title>
 
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at center, rgba(212,175,55,0.1), transparent 70%);
-      animation: shimmer 12s infinite linear;
-      z-index: 0;
-    }
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #111 0%, #000 60%);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d0d0d0;
+}
 
-    @keyframes shimmer {
-      0% { transform: translate(-30%, -30%) rotate(0deg); }
-      50% { transform: translate(30%, 30%) rotate(180deg); }
-      100% { transform: translate(-30%, -30%) rotate(360deg); }
-    }
+/* MAIN FRAME */
+.wrapper {
+  width: 980px;
+  margin: 30px auto;
+  border: 2px solid #222;
+  background: linear-gradient(#0b0b0b, #050505);
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+}
 
-    .pillar {
-      position: fixed;
-      top: 0;
-      height: 100vh;
-      width: auto;
-      z-index: 0;
-      opacity: 0.9;
-      filter: drop-shadow(0 0 25px rgba(212,175,55,0.4));
-      transition: filter 0.5s ease;
-    }
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid #222;
+}
 
-    .pillar:hover {
-      filter: drop-shadow(0 0 40px rgba(212,175,55,0.8));
-    }
+.header h1 {
+  margin: 0;
+  font-size: 52px;
+  letter-spacing: 4px;
+  color: #e6e6e6;
+  text-shadow: 0 0 15px #666;
+}
 
-    .pillar.left { left: 0; }
-    .pillar.right {
-      right: 0;
-      transform: scaleX(-1);
-    }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: 10px;
+  padding: 15px;
+}
 
-    .logo {
-      width: auto;
-      height: 220px;
-      margin-bottom: 25px;
-      filter: drop-shadow(0 0 25px #d4af37);
-      animation: fadeIn 3s ease-in;
-      transition: transform 0.3s ease, filter 0.3s ease;
-      z-index: 1;
-    }
+/* PANELS */
+.panel {
+  background: linear-gradient(#1a1a1a, #0d0d0d);
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: center;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+}
 
-    .logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 40px #ffd700);
-    }
+.panel h3 {
+  margin: 5px 0 10px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #aaa;
+  text-transform: uppercase;
+}
 
-    h1 {
-      font-size: clamp(1.8em, 4vw, 3em);
-      letter-spacing: clamp(2px, 0.6vw, 5px);
-      text-shadow: 0 0 20px #d4af37, 0 0 40px #b8860b;
-      animation: glow 3s ease-in-out infinite alternate;
-      z-index: 1;
-      margin: 10px 20px 0 20px;
-      max-width: 45%;
-      line-height: 1.2;
-    }
+/* ICONS */
+.icon {
+  margin: 10px auto;
+}
 
-    .buttons {
-      margin-top: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      z-index: 1;
-    }
+.icon img {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 0 6px #000);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
 
-    .btn {
-      border: 2px solid #d4af37;
-      color: #d4af37;
-      background: transparent;
-      padding: 12px 30px;
-      font-size: 1.2em;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border-radius: 6px;
-      z-index: 1;
-      min-width: 200px;
-    }
+.icon img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px #999);
+}
 
-    .btn:hover {
-      background-color: #d4af37;
-      color: black;
-      box-shadow: 0 0 20px #d4af37;
-      transform: scale(1.05);
-    }
+/* CENTER */
+.center {
+  background: linear-gradient(#111, #050505);
+  border: 1px solid #333;
+  padding: 15px;
+  text-align: center;
+}
 
-    .plates {
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      z-index: 1;
-    }
+.center img {
+  max-width: 100%;
+  border: 1px solid #333;
+  box-shadow: 0 0 25px rgba(0,0,0,0.9);
+}
 
-    .plates img {
-      width: 220px;
-      height: auto;
-      border: 2px solid #d4af37;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(212,175,55,0.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
+.center h2 {
+  margin: 15px 0 10px;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #ddd;
+}
 
-    .plates img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(212,175,55,0.6);
-    }
+/* LOWER STRIP */
+.lower {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 15px;
+}
 
-    .extra-image {
-      margin-top: 60px;
-      display: flex;
-      justify-content: center;
-      z-index: 1;
-    }
+.lower .panel {
+  height: 120px;
+}
 
-    .extra-image img {
-      width: clamp(250px, 60vw, 800px);
-      height: auto;
-      border: none;
-      border-radius: 12px;
-      transition: transform 0.3s ease;
-    }
-
-    .extra-image img:hover {
-      transform: scale(1.05);
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #d4af37, 0 0 20px #b8860b; }
-      to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ffcc00; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    audio { display: none; }
-
-    @media (max-width: 800px) {
-      .pillar { display: none; }
-      body {
-        justify-content: flex-start;
-        padding-top: 80px;
-        height: auto;
-      }
-      .btn {
-        width: 180px;
-        font-size: 1em;
-      }
-      .plates img { width: 180px; }
-      .extra-image img { width: 60%; }
-    }
-  </style>
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #777;
+  padding: 12px;
+  border-top: 1px solid #222;
+}
+</style>
 </head>
+
 <body>
 
-  <img src="007-Photoroom.png" alt="Left Pillar" class="pillar left">
-  <img src="007-Photoroom.png" alt="Right Pillar" class="pillar right">
+<div class="wrapper">
 
-  <img src="rm-logo.png" alt="Raso McGillicuddy Logo" class="logo">
-  <h1>RASO & MCGILLICUDDY EMPIRE</h1>
-
-  <div class="buttons">
-    <button class="btn" onclick="window.location.href='store.html'">Enter Empire</button>
-    <button class="btn">Projects</button>
+  <div class="header">
+    <h1>MAFIA.NZ</h1>
   </div>
 
-  <div class="plates">
-    <img src="Screenshot 2025-11-13 181250.png" alt="MAFIA Number Plate">
-    <img src="Screenshot 2025-11-13 181412.png" alt="EMPIRE Number Plate">
+  <div class="grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="panel">
+      <h3>Operations</h3>
+      <div class="icon"><img src="icon1.png"></div>
+      <div class="icon"><img src="icon2.png"></div>
+      <div class="icon"><img src="icon3.png"></div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="center">
+      <img src="main-image.png" alt="Empire">
+      <h2>THE EMPIRE NETWORK</h2>
+      <p>Restricted access • Internal use only</p>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="panel">
+      <h3>Archives</h3>
+      <div class="icon"><img src="icon4.png"></div>
+      <div class="icon"><img src="icon5.png"></div>
+      <div class="icon"><img src="icon6.png"></div>
+    </div>
+
   </div>
 
-  <div class="extra-image">
-    <img src="oo1-Photoroom.png" alt="Empire Scene">
+  <!-- LOWER NAV -->
+  <div class="lower">
+    <div class="panel"><h3>Projects</h3></div>
+    <div class="panel"><h3>Records</h3></div>
+    <div class="panel"><h3>Network</h3></div>
+    <div class="panel"><h3>Contact</h3></div>
   </div>
 
-  <audio id="theme" autoplay loop>
-    <source src="Dance Of The Knights.mp3" type="audio/mpeg">
-  </audio>
+  <div class="footer">
+    © MAFIA.NZ — CONTROL • POWER • LEGACY
+  </div>
 
-  <script>
-    const audio = document.getElementById('theme');
-    audio.play().catch(() => {
-      const startAudio = () => {
-        audio.play();
-        window.removeEventListener('click', startAudio);
-        window.removeEventListener('keydown', startAudio);
-      };
-      window.addEventListener('click', startAudio);
-      window.addEventListener('keydown', startAudio);
-    });
-  </script>
+</div>
 
 </body>
 </html>
