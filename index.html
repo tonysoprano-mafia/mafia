@@ -13,93 +13,77 @@ body {
 }
 
 .portal {
-  width: 900px;
-  margin: 30px auto;
-  background: radial-gradient(circle at top, #2b2b2b, #000);
-  border: 2px solid #555;
-  padding: 10px;
-  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+  width: 980px;
+  margin: 20px auto;
+  background: radial-gradient(circle at top, #2c2c2c, #000);
+  border: 2px solid #666;
+  padding: 8px;
 }
 
 /* HEADER */
 .header {
   text-align:center;
-  font-size:48px;
+  font-size:46px;
   font-weight:bold;
   letter-spacing:4px;
   color:#dcecff;
-  text-shadow:
-    0 0 10px #6fbaff,
-    0 0 25px #3b82f6;
-  padding: 10px;
-  border-bottom:1px solid #444;
+  text-shadow:0 0 10px #6fbaff;
+  margin-bottom:6px;
 }
 
-/* GRID */
+/* MAIN GRID */
 .main {
   display:grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap:8px;
-  margin-top:10px;
+  grid-template-columns: 180px 1fr 180px;
+  gap:6px;
 }
 
-/* PANEL */
+/* SIDE COLUMNS */
+.side {
+  display:grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap:6px;
+}
+
+/* PANELS */
 .panel {
-  background: linear-gradient(#3a3a3a, #050505);
-  border:1px solid #777;
-  padding:8px;
+  background: linear-gradient(#3f3f3f, #050505);
+  border:1px solid #999;
   text-align:center;
+  font-size:11px;
+  letter-spacing:1px;
+  padding:6px;
+  cursor:pointer;
+  text-shadow:0 0 4px #6fbaff;
   box-shadow:
-    inset 0 1px 1px rgba(255,255,255,0.3),
+    inset 0 1px 1px rgba(255,255,255,0.4),
     inset 0 -2px 4px rgba(0,0,0,0.9);
 }
 
-.panel h3 {
-  font-size:12px;
-  margin:4px 0 6px;
-  letter-spacing:2px;
-  color:#9ed0ff;
-}
-
-/* BUTTON TILES */
-.tile {
-  background: linear-gradient(#5a5a5a, #1a1a1a);
-  border:1px solid #999;
-  margin:6px 0;
-  padding:6px;
-  font-size:11px;
-  cursor:pointer;
-  text-shadow: 0 0 4px #6fbaff;
+.panel:hover {
   box-shadow:
-    inset 0 1px 1px rgba(255,255,255,0.4),
-    inset 0 -1px 2px rgba(0,0,0,0.9);
-}
-
-.tile:hover {
-  background: linear-gradient(#7a7a7a, #2a2a2a);
-  box-shadow:
-    0 0 10px #6fbaff,
+    0 0 12px #6fbaff,
     inset 0 1px 1px rgba(255,255,255,0.5);
 }
 
 /* CENTER */
 .center {
-  background: linear-gradient(#222, #000);
-  border:1px solid #888;
-  padding:10px;
+  background: linear-gradient(#1a1a1a, #000);
+  border:1px solid #999;
+  padding:8px;
   text-align:center;
   box-shadow:
     inset 0 0 20px black,
-    0 0 20px rgba(120,200,255,0.3);
+    0 0 25px rgba(120,200,255,0.4);
 }
 
 .center img {
-  width: 100%;
+  width:100%;
   border:1px solid #777;
 }
 
 .center h2 {
-  margin:8px 0;
+  margin:6px 0;
   font-size:18px;
   letter-spacing:3px;
   color:#dcecff;
@@ -109,21 +93,16 @@ body {
 /* FOOTER STRIP */
 .footer {
   display:grid;
-  grid-template-columns: repeat(4,1fr);
-  gap:8px;
-  margin-top:10px;
+  grid-template-columns: repeat(5,1fr);
+  gap:6px;
+  margin-top:6px;
 }
 
-.footer .panel {
-  height:80px;
-}
-
-/* COPYRIGHT */
 .copy {
   text-align:center;
   font-size:10px;
   letter-spacing:2px;
-  margin-top:8px;
+  margin-top:6px;
   color:#9ed0ff;
 }
 </style>
@@ -137,45 +116,46 @@ body {
 
   <div class="main">
 
-    <!-- LEFT -->
-    <div class="panel">
-      <h3>OPERATIONS</h3>
-      <div class="tile">HITS FILES</div>
-      <div class="tile">PICTURES</div>
-      <div class="tile">ART GALLERY</div>
-      <div class="tile">ONLINE SHOP</div>
-      <div class="tile">GUESTBOOK</div>
+    <!-- LEFT STACK -->
+    <div class="side">
+      <div class="panel">HITS FILES</div>
+      <div class="panel">PICTURES</div>
+      <div class="panel">ART GALLERY</div>
+      <div class="panel">ONLINE SHOP</div>
+      <div class="panel">GUESTBOOK</div>
+      <div class="panel">LIFESTYLE</div>
     </div>
 
     <!-- CENTER -->
     <div class="center">
-      <img src="https://via.placeholder.com/400x300/111/999">
+      <img src="https://via.placeholder.com/420x320/111/aaa">
       <h2>EMPIRE NETWORK</h2>
-      <div class="tile">INVESTOR ACCESS</div>
-      <div class="tile">PRIVATE FUND</div>
+      <div class="panel">INVESTOR LOGIN</div>
+      <div class="panel">PRIVATE FUND</div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="panel">
-      <h3>ARCHIVES</h3>
-      <div class="tile">BUSINESS</div>
-      <div class="tile">MEDIA</div>
-      <div class="tile">DOCUMENTS</div>
-      <div class="tile">PROJECTS</div>
-      <div class="tile">CONTACT</div>
+    <!-- RIGHT STACK -->
+    <div class="side">
+      <div class="panel">BUSINESS</div>
+      <div class="panel">MEDIA</div>
+      <div class="panel">DOCUMENTS</div>
+      <div class="panel">PROJECTS</div>
+      <div class="panel">CONTACT</div>
+      <div class="panel">SECURITY</div>
     </div>
 
   </div>
 
   <div class="footer">
-    <div class="panel"><h3>MOVIES</h3></div>
-    <div class="panel"><h3>INVEST</h3></div>
-    <div class="panel"><h3>NETWORK</h3></div>
-    <div class="panel"><h3>SHOP</h3></div>
+    <div class="panel">MOVIES</div>
+    <div class="panel">K-INVEST</div>
+    <div class="panel">NETWORK</div>
+    <div class="panel">SHOP</div>
+    <div class="panel">DOWNLOADS</div>
   </div>
 
   <div class="copy">
-    © PRIVATE PORTAL — CONFIDENTIAL ACCESS ONLY
+    © PRIVATE EMPIRE PORTAL — CONFIDENTIAL
   </div>
 
 </div>
