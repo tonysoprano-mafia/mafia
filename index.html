@@ -13,28 +13,29 @@ body {
 }
 
 .portal {
-  width: 1000px;
+  width: 95vw;
+  max-width: 1500px;
   margin: 20px auto;
   border: 2px solid #666;
   background: radial-gradient(circle at top, #2b2b2b, #000);
-  padding: 8px;
+  padding: 12px;
 }
 
 /* HEADER */
 .header {
   text-align:center;
-  font-size:48px;
-  letter-spacing:4px;
+  font-size:64px;
+  letter-spacing:6px;
   color:#e6f2ff;
-  text-shadow:0 0 12px #6fbaff;
-  margin-bottom:6px;
+  text-shadow:0 0 16px #6fbaff;
+  margin-bottom:10px;
 }
 
 /* MAIN */
 .main {
   display:grid;
-  grid-template-columns: 260px 1fr 260px;
-  gap:8px;
+  grid-template-columns: 340px 1fr 340px;
+  gap:12px;
 }
 
 /* SIDE GRID */
@@ -42,14 +43,14 @@ body {
   display:grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
-  gap:8px;
+  gap:12px;
 }
 
 /* TILE */
 .tile {
   background: linear-gradient(#4a4a4a, #111);
   border:1px solid #999;
-  height: 150px;
+  height: 220px;
   text-align:center;
   box-shadow:
     inset 0 2px 2px rgba(255,255,255,0.3),
@@ -60,47 +61,49 @@ body {
 
 .tile:hover {
   box-shadow:
-    0 0 15px #6fbaff,
+    0 0 18px #6fbaff,
     inset 0 2px 2px rgba(255,255,255,0.4);
 }
 
 /* TILE TEXT */
 .tile h4 {
-  margin:6px 0;
-  font-size:11px;
+  margin:10px 0;
+  font-size:14px;
   letter-spacing:2px;
   color:#cfe8ff;
 }
 
 /* ICON */
 .tile img {
-  width:64px;
-  margin-top:18px;
-  filter: drop-shadow(0 0 6px #6fbaff);
+  width:90px;
+  margin-top:28px;
+  filter: drop-shadow(0 0 8px #6fbaff);
 }
 
 /* CENTER */
 .center {
   background: linear-gradient(#1a1a1a, #000);
   border:1px solid #888;
-  padding:8px;
+  padding:12px;
   text-align:center;
   box-shadow:
-    inset 0 0 30px black,
-    0 0 30px rgba(120,200,255,0.3);
+    inset 0 0 40px black,
+    0 0 40px rgba(120,200,255,0.3);
 }
 
 .center img {
   width:100%;
+  max-height: 600px;
+  object-fit: cover;
   border:1px solid #777;
 }
 
 .center h2 {
-  margin:10px 0;
-  font-size:20px;
-  letter-spacing:3px;
+  margin:14px 0;
+  font-size:28px;
+  letter-spacing:4px;
   color:#e6f2ff;
-  text-shadow:0 0 8px #6fbaff;
+  text-shadow:0 0 10px #6fbaff;
 }
 </style>
 </head>
@@ -115,32 +118,32 @@ body {
 
     <!-- LEFT -->
     <div class="side">
-      <div class="tile"><h4>HITS MONEY MACHINE</h4><img src="https://via.placeholder.com/64"></div>
-      <div class="tile"><h4>HITS WEB DESIGN</h4><img src="https://via.placeholder.com/64"></div>
+      <div class="tile"><h4>HITS MONEY MACHINE</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>HITS WEB DESIGN</h4><img src="https://via.placeholder.com/90"></div>
 
-      <div class="tile"><h4>HITS ULTIMATE PROJECT</h4><img src="https://via.placeholder.com/64"></div>
-      <div class="tile"><h4>HITS PHOTO BOOTH</h4><img src="https://via.placeholder.com/64"></div>
+      <div class="tile"><h4>HITS ULTIMATE PROJECT</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>HITS PHOTO BOOTH</h4><img src="https://via.placeholder.com/90"></div>
 
-      <div class="tile"><h4>HITS MEDIA</h4><img src="https://via.placeholder.com/64"></div>
-      <div class="tile"><h4>HITS DOWNLOADS</h4><img src="https://via.placeholder.com/64"></div>
+      <div class="tile"><h4>HITS MEDIA</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>HITS DOWNLOADS</h4><img src="https://via.placeholder.com/90"></div>
     </div>
 
     <!-- CENTER -->
     <div class="center">
-      <img src="https://via.placeholder.com/460x340/111/aaa">
+      <img src="https://via.placeholder.com/800x500/111/aaa">
       <h2>EMPIRE NETWORK</h2>
     </div>
 
     <!-- RIGHT -->
     <div class="side">
-      <div class="tile"><h4>HITS BUSINESS</h4><img src="https://via.placeholder.com/64"></div>
-      <div class="tile"><h4>ORDER NOW</h4><img src="https://via.placeholder.com/64"></div>
+      <div class="tile"><h4>HITS BUSINESS</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>ORDER NOW</h4><img src="https://via.placeholder.com/90"></div>
 
-      <div class="tile"><h4>HITS GUMBALL PHOTOS</h4><img src="https://via.placeholder.com/64"></div>
-      <div class="tile"><h4>HITS ULTIMATE PROJECT</h4><img src="https://via.placeholder.com/64"></div>
+      <div class="tile"><h4>HITS GUMBALL PHOTOS</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>HITS ULTIMATE PROJECT</h4><img src="https://via.placeholder.com/90"></div>
 
-      <div class="tile"><h4>HITS CONTACT</h4><img src="https://via.placeholder.com/64"></div>
-      <div class="tile"><h4>HITS SECURITY</h4><img src="https://via.placeholder.com/64"></div>
+      <div class="tile"><h4>HITS CONTACT</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>HITS SECURITY</h4><img src="https://via.placeholder.com/90"></div>
     </div>
 
   </div>
