@@ -51,7 +51,7 @@ body {
   gap:12px;
 }
 
-/* TILE (works for div OR link) */
+/* TILE */
 .tile {
   background: linear-gradient(#4a4a4a, #111);
   border:1px solid #999;
@@ -62,8 +62,6 @@ body {
     inset 0 -3px 6px rgba(0,0,0,0.9);
   cursor:pointer;
   position: relative;
-  text-decoration: none;
-  color: inherit;
 }
 
 .tile:hover {
@@ -104,6 +102,13 @@ body {
   object-fit: cover;
   border:1px solid #777;
 }
+
+/* LINK WRAPPER */
+.tile-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 </style>
 </head>
 
@@ -111,6 +116,7 @@ body {
 
 <div class="portal">
 
+  <!-- LOGO HEADER -->
   <div class="header">
     <img src="RASOEMPIRE.png" class="logo">
   </div>
@@ -120,10 +126,11 @@ body {
     <!-- LEFT -->
     <div class="side">
 
-      <!-- CLICKABLE TILE -->
-      <a href="money.html" class="tile">
-        <h4>MONEY MACHINE</h4>
-        <img src="https://via.placeholder.com/90">
+      <a href="page1.html" class="tile-link">
+        <div class="tile">
+          <h4>OPERATIONS</h4>
+          <img src="https://via.placeholder.com/90">
+        </div>
       </a>
 
       <div class="tile"><h4></h4><img src="https://via.placeholder.com/90"></div>
