@@ -1,36 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>OPERATIONS</title>
-  <style>
-    body {
-      background:black;
-      color:white;
-      font-family: Arial, Helvetica, sans-serif;
-      text-align:center;
-      margin:0;
-      padding:0;
-    }
-    h1 {
-      margin-top:50px;
-      letter-spacing:3px;
-    }
-    a {
-      color:#6fbaff;
-      text-decoration:none;
-      font-size:18px;
-      display:block;
-      margin-top:40px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>OPERATIONS</title>
+
+<style>
+body {
+  margin:0;
+  background:black;
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
+}
+
+.portal {
+  width: 95vw;
+  max-width: 1500px;
+  margin: 20px auto;
+  border: 2px solid #666;
+  background: radial-gradient(circle at top, #2b2b2b, #000);
+  padding: 12px;
+}
+
+/* HEADER */
+.header {
+  text-align:center;
+  margin-bottom:10px;
+}
+
+/* LOGO */
+.logo {
+  width: 800px;
+  max-width: 90%;
+  display: block;
+  margin: 10px auto 20px;
+  filter: drop-shadow(0 0 25px rgba(120,200,255,0.8));
+}
+
+/* MAIN */
+.main {
+  display:grid;
+  grid-template-columns: 340px 1fr 340px;
+  gap:12px;
+}
+
+/* SIDE GRID */
+.side {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap:12px;
+}
+
+/* TILE */
+.tile {
+  background: linear-gradient(#4a4a4a, #111);
+  border:1px solid #999;
+  height: 220px;
+  text-align:center;
+  box-shadow:
+    inset 0 2px 2px rgba(255,255,255,0.3),
+    inset 0 -3px 6px rgba(0,0,0,0.9);
+  cursor:pointer;
+  position: relative;
+}
+
+.tile:hover {
+  box-shadow:
+    0 0 18px #6fbaff,
+    inset 0 2px 2px rgba(255,255,255,0.4);
+}
+
+/* TILE TEXT */
+.tile h4 {
+  margin:10px 0;
+  font-size:14px;
+  letter-spacing:2px;
+  color:#cfe8ff;
+}
+
+/* ICON */
+.tile img {
+  width:90px;
+  margin-top:28px;
+  filter: drop-shadow(0 0 8px #6fbaff);
+}
+
+/* CENTER */
+.center {
+  background: linear-gradient(#1a1a1a, #000);
+  border:1px solid #888;
+  padding:12px;
+  text-align:center;
+  box-shadow:
+    inset 0 0 40px black,
+    0 0 40px rgba(120,200,255,0.3);
+}
+
+.center img {
+  width:100%;
+  max-height: 600px;
+  object-fit: cover;
+  border:1px solid #777;
+}
+
+/* LINK WRAPPER */
+.tile-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+</style>
 </head>
+
 <body>
 
-<h1>OPERATIONS</h1>
-<p>This page opens when you click a tile.</p>
+<div class="portal">
 
-<a href="index.html">← Back to THE RASO EMPIRE</a>
+  <!-- LOGO HEADER -->
+  <div class="header">
+    <img src="RASOEMPIRE.png" class="logo">
+  </div>
+
+  <div class="main">
+
+    <!-- LEFT SIDE -->
+    <div class="side">
+      <div class="tile"><h4>Example 1</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 2</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 3</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 4</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 5</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 6</h4><img src="https://via.placeholder.com/90"></div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="center">
+      <img src="thumb-1920-836912.jpg">
+      <h2>OPERATIONS CENTER</h2>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="side">
+      <div class="tile"><h4>Example 7</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 8</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 9</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 10</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 11</h4><img src="https://via.placeholder.com/90"></div>
+      <div class="tile"><h4>Example 12</h4><img src="https://via.placeholder.com/90"></div>
+    </div>
+
+  </div>
+
+</div>
 
 </body>
 </html>
